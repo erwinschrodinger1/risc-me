@@ -21,10 +21,10 @@ module alu(
   always @(posedge clk) begin
     if (enable) begin
       case (mode)
-        `ALU_ADD: {flag_carry, buf_out} = in_a + in_b;
-        `ALU_SUB: {flag_carry, buf_out} = in_a - in_b;
-        `ALU_AND: buf_out = in_a & in_b;
-        `ALU_OR:  buf_out = in_a | in_b;
+        `OP_ADD: {flag_carry, buf_out} = in_a + in_b;
+        `OP_SUB: {flag_carry, buf_out} = in_a - in_b;
+        `OP_AND: buf_out = in_a & in_b;
+        `OP_OR:  buf_out = in_a | in_b;
         default:  buf_out = 'hxx;
       endcase
 
