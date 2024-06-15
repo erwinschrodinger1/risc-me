@@ -1,0 +1,324 @@
+$date
+	Sat Jun 15 22:53:40 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 8 ! src [7:0] $end
+$var reg 1 " clk $end
+$var reg 8 # data [7:0] $end
+$var reg 3 $ dest_bus_selector [2:0] $end
+$var reg 1 % reset $end
+$var reg 3 & src_bus_selector [2:0] $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 8 ' data [7:0] $end
+$var wire 3 ( dest_bus_selector [2:0] $end
+$var wire 1 % reset $end
+$var wire 3 ) src_bus_selector [2:0] $end
+$var wire 8 * reg_R7_out [7:0] $end
+$var wire 8 + reg_R6_out [7:0] $end
+$var wire 8 , reg_R5_out [7:0] $end
+$var wire 8 - reg_R4_out [7:0] $end
+$var wire 8 . reg_R3_out [7:0] $end
+$var wire 8 / reg_R2_out [7:0] $end
+$var wire 8 0 reg_R1_out [7:0] $end
+$var wire 8 1 reg_R0_out [7:0] $end
+$var reg 8 2 src [7:0] $end
+$scope module reg_R0 $end
+$var wire 1 " clk $end
+$var wire 8 3 data [7:0] $end
+$var wire 1 4 enable $end
+$var wire 1 5 latch $end
+$var wire 1 % reset $end
+$var reg 8 6 r [7:0] $end
+$var reg 8 7 reg_out [7:0] $end
+$upscope $end
+$scope module reg_R1 $end
+$var wire 1 " clk $end
+$var wire 8 8 data [7:0] $end
+$var wire 1 9 enable $end
+$var wire 1 : latch $end
+$var wire 1 % reset $end
+$var reg 8 ; r [7:0] $end
+$var reg 8 < reg_out [7:0] $end
+$upscope $end
+$scope module reg_R2 $end
+$var wire 1 " clk $end
+$var wire 8 = data [7:0] $end
+$var wire 1 > enable $end
+$var wire 1 ? latch $end
+$var wire 1 % reset $end
+$var reg 8 @ r [7:0] $end
+$var reg 8 A reg_out [7:0] $end
+$upscope $end
+$scope module reg_R3 $end
+$var wire 1 " clk $end
+$var wire 8 B data [7:0] $end
+$var wire 1 C enable $end
+$var wire 1 D latch $end
+$var wire 1 % reset $end
+$var reg 8 E r [7:0] $end
+$var reg 8 F reg_out [7:0] $end
+$upscope $end
+$scope module reg_R4 $end
+$var wire 1 " clk $end
+$var wire 8 G data [7:0] $end
+$var wire 1 H enable $end
+$var wire 1 I latch $end
+$var wire 1 % reset $end
+$var reg 8 J r [7:0] $end
+$var reg 8 K reg_out [7:0] $end
+$upscope $end
+$scope module reg_R5 $end
+$var wire 1 " clk $end
+$var wire 8 L data [7:0] $end
+$var wire 1 M enable $end
+$var wire 1 N latch $end
+$var wire 1 % reset $end
+$var reg 8 O r [7:0] $end
+$var reg 8 P reg_out [7:0] $end
+$upscope $end
+$scope module reg_R6 $end
+$var wire 1 " clk $end
+$var wire 8 Q data [7:0] $end
+$var wire 1 R enable $end
+$var wire 1 S latch $end
+$var wire 1 % reset $end
+$var reg 8 T r [7:0] $end
+$var reg 8 U reg_out [7:0] $end
+$upscope $end
+$scope module reg_R7 $end
+$var wire 1 " clk $end
+$var wire 8 V data [7:0] $end
+$var wire 1 W enable $end
+$var wire 1 X latch $end
+$var wire 1 % reset $end
+$var reg 8 Y r [7:0] $end
+$var reg 8 Z reg_out [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx Z
+bx Y
+0X
+0W
+b0 V
+bx U
+bx T
+0S
+0R
+b0 Q
+bx P
+bx O
+0N
+0M
+b0 L
+bx K
+bx J
+0I
+0H
+b0 G
+bx F
+bx E
+0D
+0C
+b0 B
+bx A
+bx @
+0?
+0>
+b0 =
+bx <
+bx ;
+0:
+09
+b0 8
+bx 7
+bx 6
+15
+14
+b0 3
+bx 2
+bx 1
+bx 0
+bx /
+bx .
+bx -
+bx ,
+bx +
+bx *
+b0 )
+b0 (
+b0 '
+b0 &
+1%
+b0 $
+b0 #
+0"
+bx !
+$end
+#5000
+b0 1
+b0 7
+b0 6
+b0 ;
+b0 @
+b0 E
+b0 J
+b0 O
+b0 T
+b0 Y
+bz 0
+bz <
+bz /
+bz A
+bz .
+bz F
+bz -
+bz K
+bz ,
+bz P
+bz +
+bz U
+bz *
+bz Z
+1"
+#10000
+0"
+0%
+#15000
+b0 !
+b0 2
+1"
+#20000
+0"
+1%
+#25000
+1"
+#30000
+0"
+b10100101 #
+b10100101 '
+b10100101 3
+b10100101 8
+b10100101 =
+b10100101 B
+b10100101 G
+b10100101 L
+b10100101 Q
+b10100101 V
+#35000
+1"
+#40000
+05
+1:
+0"
+b1011010 #
+b1011010 '
+b1011010 3
+b1011010 8
+b1011010 =
+b1011010 B
+b1011010 G
+b1011010 L
+b1011010 Q
+b1011010 V
+b1 $
+b1 (
+#45000
+1"
+#50000
+0:
+1?
+0"
+b11111111 #
+b11111111 '
+b11111111 3
+b11111111 8
+b11111111 =
+b11111111 B
+b11111111 G
+b11111111 L
+b11111111 Q
+b11111111 V
+b10 $
+b10 (
+#55000
+1"
+#60000
+0?
+1D
+0"
+b0 #
+b0 '
+b0 3
+b0 8
+b0 =
+b0 B
+b0 G
+b0 L
+b0 Q
+b0 V
+b11 $
+b11 (
+#65000
+1"
+#70000
+0"
+#75000
+1"
+#80000
+04
+19
+0"
+b1 &
+b1 )
+#85000
+bz 1
+bz 7
+b0 0
+b0 <
+bz !
+bz 2
+1"
+#90000
+09
+1>
+0"
+b10 &
+b10 )
+#95000
+b0 !
+b0 2
+b0 /
+b0 A
+bz 0
+bz <
+1"
+#100000
+0>
+1C
+0"
+b11 &
+b11 )
+#105000
+bz /
+bz A
+b0 .
+b0 F
+bz !
+bz 2
+1"
+#110000
+0"
