@@ -9,6 +9,15 @@ module general_registers (
     output reg [7:0] src
 );
 
+// general_registers general_registers_instance(
+//     clk(),
+//     reset(),
+//     src_bus_selector(),
+//     dest_bus_selector(),
+//     data(),
+//     src()
+// );
+
 wire [7:0] reg_R0_out;
 wire [7:0] reg_R1_out;
 wire [7:0] reg_R2_out;
