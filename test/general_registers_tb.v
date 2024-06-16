@@ -1,60 +1,67 @@
 `timescale 1ns / 1ps
-`include "parameters.v"
 
 module general_registers_tb;
 
-// Testbench signals
-reg clk;
-reg reset;
-reg [2:0] src_bus_selector;
-reg [2:0] dest_bus_selector;
-reg [7:0] data;
-wire [7:0] src;
+    `include "parameters.v"
+    // Parameters
 
-// Instantiate the registers module
-general_registers uut (
-    .clk(clk),
-    .reset(reset),
-    .src_bus_selector(src_bus_selector),
-    .dest_bus_selector(dest_bus_selector),
-    .data(data),
-    .src(src)
-);
+    // Define constants for easier readability
+    localparam CLK_PERIOD = 10;  // Clock period in ns
 
-// Clock generation
-always #5 clk = ~clk;  // 100MHz clock
+    // Signals for module ports
+    reg clk;
+    reg reset;
+    reg [2:0] src1_bus_selector;
+    reg [2:0] src2_bus_selector;
+    reg [2:0] dest_bus_selector;
+    reg [7:0] data;
+    wire [7:0] src1;
+    wire [7:0] src2;
 
-// Testbench procedure
-initial begin
-    // Dump VCD file
-    $dumpfile("registers_tb.vcd");
-    $dumpvars(0, testbench);
+    // Instantiate the module under test
+    general_registers uut (
+        .clk(clk),
+        .reset(reset),
+        .src1_bus_selector(src1_bus_selector),
+        .src2_bus_selector(src2_bus_selector),
+        .dest_bus_selector(dest_bus_selector),
+        .data(data),
+        .src1(src1),
+        .src2(src2)
+    );
 
-    // Initialize signals
-    clk = 0;
-    reset = 1;
-    src_bus_selector = 3'b000;
-    dest_bus_selector = 3'b000;
-    data = 8'h00;
-    
-    // Reset sequence
-    #10 reset = 0;
-    #10 reset = 1;
+    // Clock generation
+    always #5 clk = ~clk;  // Toggle clock every half period
 
-    // Write to registers
-    #10 dest_bus_selector = `R0_SELECTOR; data = 8'hA5;  // Write 0xA5 to R0
-    #10 dest_bus_selector = `R1_SELECTOR; data = 8'h5A;  // Write 0x5A to R1
-    #10 dest_bus_selector = `R2_SELECTOR; data = 8'hFF;  // Write 0xFF to R2
-    #10 dest_bus_selector = `R3_SELECTOR; data = 8'h00;  // Write 0x00 to R3
-    
-    // Read from registers
-    #10 src_bus_selector = `R0_SELECTOR;  // Read from R0
-    #10 src_bus_selector = `R1_SELECTOR;  // Read from R1
-    #10 src_bus_selector = `R2_SELECTOR;  // Read from R2
-    #10 src_bus_selector = `R3_SELECTOR;  // Read from R3
+    // Initial stimulus
+    initial begin
+        clk=0;
+        // Initialize inputs
+        reset = 1;
+        src1_bus_selector = 0;
+        src2_bus_selector = 0;
+        dest_bus_selector = 0;
+        data = 8'h00;
 
-    // End simulation
-    #10 $finish;
-end
+        // Start of testbench
+        $dumpfile("general_registers_tb.vcd");
+        $dumpvars(0, general_registers_tb);
+
+        // Reset sequence
+        #20 reset = 0;
+
+        // Test case 1: Write data to R0
+        data = 8'hFF;
+        dest_bus_selector = `R0_SELECTOR;
+        #20;
+
+        // Test case 2: Select R3 and R6 for src1 and src2 respectively
+        src1_bus_selector = `R3_SELECTOR;
+        src2_bus_selector = `R6_SELECTOR;
+        #20;
+
+        // End simulation
+        #20 $finish;
+    end
 
 endmodule

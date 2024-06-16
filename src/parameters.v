@@ -11,7 +11,7 @@
 `define R0_SELECTOR 3'b000
 `define R1_SELECTOR 3'b001
 `define R2_SELECTOR 3'b010
-`define R3_SELECTOR  3'b011
+`define R3_SELECTOR 3'b011
 `define R4_SELECTOR 3'b100
 `define R5_SELECTOR 3'b101
 `define R6_SELECTOR 3'b110
@@ -26,3 +26,12 @@
 `define T5 3'b101
 `define T6 3'b110
 `define T7 3'b111
+
+// MUX inputs
+`define GENERAL_REGISTERS 3'b001
+`define PC 3'b010
+`define IR 3'b011
+`define MAR 3'b100
+`define MEMORY 3'b101
+
+

@@ -1,22 +1,15 @@
-`include "parameters.v" 
+`include "parameters.v"
 
 module general_registers (
     input clk,
     input reset,
-    input wire [2:0] src_bus_selector,
+    input wire [2:0] src1_bus_selector,
+    input wire [2:0] src2_bus_selector,
     input wire [2:0] dest_bus_selector,
     input wire [7:0] data,
-    output reg [7:0] src
+    output reg [7:0] src1,
+    output reg [7:0] src2
 );
-
-// general_registers general_registers_instance(
-//     clk(),
-//     reset(),
-//     src_bus_selector(),
-//     dest_bus_selector(),
-//     data(),
-//     src()
-// );
 
 wire [7:0] reg_R0_out;
 wire [7:0] reg_R1_out;
@@ -27,13 +20,11 @@ wire [7:0] reg_R5_out;
 wire [7:0] reg_R6_out;
 wire [7:0] reg_R7_out;
 
-// Register instances
 register reg_R0 (
     .clk(clk),
     .reset(reset),
     .data(data),
     .reg_out(reg_R0_out),
-    .enable((src_bus_selector == `R0_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R0_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -42,7 +33,6 @@ register reg_R1 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R1_out),
-    .enable((src_bus_selector == `R1_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R1_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -51,7 +41,6 @@ register reg_R2 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R2_out),
-    .enable((src_bus_selector == `R2_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R2_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -60,7 +49,6 @@ register reg_R3 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R3_out),
-    .enable((src_bus_selector == `R3_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R3_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -69,7 +57,6 @@ register reg_R4 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R4_out),
-    .enable((src_bus_selector == `R4_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R4_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -78,7 +65,6 @@ register reg_R5 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R5_out),
-    .enable((src_bus_selector == `R5_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R5_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -87,7 +73,6 @@ register reg_R6 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R6_out),
-    .enable((src_bus_selector == `R6_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R6_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
@@ -96,23 +81,33 @@ register reg_R7 (
     .reset(reset),
     .data(data),
     .reg_out(reg_R7_out),
-    .enable((src_bus_selector == `R7_SELECTOR) ? 1'b1 : 1'b0),
     .latch((dest_bus_selector == `R7_SELECTOR) ? 1'b1 : 1'b0),
     .inc(1'b0)
 );
 
-// Outputs based on src_bus_selector
-always @(posedge clk) begin
-    case (src_bus_selector)
-        `R0_SELECTOR: src = reg_R0_out;
-        `R1_SELECTOR: src = reg_R1_out;
-        `R2_SELECTOR: src = reg_R2_out;
-        `R3_SELECTOR: src = reg_R3_out;
-        `R4_SELECTOR: src = reg_R4_out;
-        `R5_SELECTOR: src = reg_R5_out;
-        `R6_SELECTOR: src = reg_R6_out;
-        `R7_SELECTOR: src = reg_R7_out;
-        default: src = 8'hzz; // Invalid selector
+always @(*) begin
+    case (src1_bus_selector)
+        `R0_SELECTOR: src1 = reg_R0_out;
+        `R1_SELECTOR: src1 = reg_R1_out;
+        `R2_SELECTOR: src1 = reg_R2_out;
+        `R3_SELECTOR: src1 = reg_R3_out;
+        `R4_SELECTOR: src1 = reg_R4_out;
+        `R5_SELECTOR: src1 = reg_R5_out;
+        `R6_SELECTOR: src1 = reg_R6_out;
+        `R7_SELECTOR: src1 = reg_R7_out;
+        default: src1 = 8'bz;
+    endcase
+
+    case (src2_bus_selector)
+        `R0_SELECTOR: src2 = reg_R0_out;
+        `R1_SELECTOR: src2 = reg_R1_out;
+        `R2_SELECTOR: src2 = reg_R2_out;
+        `R3_SELECTOR: src2 = reg_R3_out;
+        `R4_SELECTOR: src2 = reg_R4_out;
+        `R5_SELECTOR: src2 = reg_R5_out;
+        `R6_SELECTOR: src2 = reg_R6_out;
+        `R7_SELECTOR: src2 = reg_R7_out;
+        default: src2 = 8'bz;
     endcase
 end
 

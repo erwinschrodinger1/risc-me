@@ -1,54 +1,70 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
 module memory_tb;
 
+    // Parameters
+    parameter CLK_PERIOD = 10; // Clock period in time units
+
+    // Signals
     reg clk;
-    reg mem_read;
     reg mem_write;
     reg [7:0] address;
-    reg [7:0] input_data; // Internal signal for driving input_data
-    
+    reg [7:0] input_data;
     wire [7:0] output_data;
 
-    // Instantiate the memory module
-    memory uut (
+    // Instantiate memory module
+    memory dut (
         .clk(clk),
-        .mem_read(mem_read),
         .mem_write(mem_write),
         .address(address),
-        .input_data(input_data), // Connect internal signal
+        .input_data(input_data),
         .output_data(output_data)
     );
 
+    // Stimulus
     initial begin
-        // Initialize signals
         clk = 0;
-        mem_read = 0;
-        mem_write = 0;
-        address = 8'b0000;
-        input_data = 8'b00000000;
-
-        // Dump VCD file
         $dumpfile("memory_tb.vcd");
-        $dumpvars(0, tb_memory);
+        $dumpvars(0, memory_tb);
 
-        // Test reading from memory
-        #10 mem_read = 1; address = 8'b00000001;
-        #20 mem_read = 0;
+        // Write operations
+        mem_write = 1;
+        address = 8'h00;
+        input_data = 8'hAA;
+        #20;
+        
+        mem_write = 1;
+        address = 8'hFF;
+        input_data = 8'h55;
+        #20;
+        
+        mem_write = 1;
+        address = 8'h0A;
+        input_data = 8'hF0;
+        #20;
+        
+        mem_write = 0;
 
-        // Test writing to memory
-        #30 mem_write = 1; address = 8'b00000010; input_data = 8'b10101010;
-        #40 mem_write = 0;
+        // Read operations
+        mem_write = 0;
+        address = 8'h00;
+        #20;
+        
+        mem_write = 0;
+        address = 8'hFF;
+        #20;
+        
+        mem_write = 0;
+        address = 8'h0A;
+        #20;
 
-        // Test reading the written data
-        #50 mem_read = 1; address = 8'b00000010;
-        #60 mem_read = 0;
+        // Further tests can be added here
 
-        // Finish the simulation
-        #70 $finish;
+        // End simulation
+        #100;
+        $finish;
     end
 
-    // Clock generation
     always #5 clk = ~clk;
 
 endmodule

@@ -1,44 +1,19 @@
-module register(
+module register (
     input wire clk,
     input wire reset,
-    input wire enable,
     input wire latch,
     input wire inc,
     input wire [7:0] data,
     output reg [7:0] reg_out
 );
-
-// instance
-// register register_instance(
-//     .clk(),
-//     .reset(),
-//     .data(),
-//     .reg_out(),
-//     .enable(),
-//     .latch()
-//     .inc()
-// );
-
-reg[7:0] r;
-
-always @(posedge clk ) begin
-    if (reset) begin
-        r <= 0;
-    end else if (latch) begin
-        r<=data;
-    end else if (inc) begin
-        r <= r+1;
+    always @(posedge clk) begin
+        if (reset) begin
+            reg_out <= 8'h00; // Reset to 0
+        end else if (latch) begin
+            reg_out <= data; // Load with data
+        end else if (inc) begin
+            reg_out <= reg_out + 1'b1; // Increment
+        end
     end
-    
-end
-
-always @(*) begin
-    if(enable) begin
-        reg_out = r;
-    end else begin
-        reg_out = 8'bz;
-    end
-end
 
 endmodule
-

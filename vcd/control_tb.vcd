@@ -1,0 +1,315 @@
+$date
+	Sun Jun 16 21:41:53 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module control_tb $end
+$var wire 3 ! src2_bus_selector [2:0] $end
+$var wire 3 " src1_bus_selector [2:0] $end
+$var wire 1 # pc_latch $end
+$var wire 1 $ pc_inc $end
+$var wire 1 % pc_en $end
+$var wire 1 & mem_write $end
+$var wire 1 ' mem_read $end
+$var wire 1 ( mar_latch $end
+$var wire 1 ) mar_inc $end
+$var wire 1 * mar_en $end
+$var wire 1 + ir_latch $end
+$var wire 1 , ir_inc $end
+$var wire 1 - ir_en $end
+$var wire 3 . dest_bus_selector [2:0] $end
+$var wire 1 / alu_en $end
+$var reg 1 0 clk $end
+$var reg 1 1 flag_carry $end
+$var reg 1 2 flag_zero $end
+$var reg 8 3 ir [7:0] $end
+$var reg 8 4 mar [7:0] $end
+$var reg 8 5 pc [7:0] $end
+$var reg 3 6 sc [2:0] $end
+$scope module uut $end
+$var wire 1 0 clk $end
+$var wire 1 1 flag_carry $end
+$var wire 1 2 flag_zero $end
+$var wire 8 7 ir [7:0] $end
+$var wire 8 8 mar [7:0] $end
+$var wire 8 9 pc [7:0] $end
+$var wire 3 : sc [2:0] $end
+$var reg 1 / alu_en $end
+$var reg 3 ; dest_bus_selector [2:0] $end
+$var reg 1 - ir_en $end
+$var reg 1 , ir_inc $end
+$var reg 1 + ir_latch $end
+$var reg 1 * mar_en $end
+$var reg 1 ) mar_inc $end
+$var reg 1 ( mar_latch $end
+$var reg 1 ' mem_read $end
+$var reg 1 & mem_write $end
+$var reg 1 % pc_en $end
+$var reg 1 $ pc_inc $end
+$var reg 1 # pc_latch $end
+$var reg 3 < src1_bus_selector [2:0] $end
+$var reg 3 = src2_bus_selector [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx =
+bx <
+bx ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+02
+01
+00
+x/
+bx .
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+x#
+bx "
+bx !
+$end
+#5000
+b0 .
+b0 ;
+b0 !
+b0 =
+b0 "
+b0 <
+0/
+0&
+0'
+0,
+0+
+0-
+0)
+1(
+0*
+0$
+0#
+1%
+10
+#10000
+00
+#15000
+1(
+1%
+10
+#20000
+00
+b1 6
+b1 :
+#25000
+1+
+1$
+1'
+0(
+0%
+10
+#30000
+00
+b10 6
+b10 :
+#35000
+0'
+0+
+0$
+10
+#40000
+00
+b11 6
+b11 :
+#45000
+1/
+10
+#50000
+00
+b100 6
+b100 :
+#55000
+1$
+0/
+10
+#60000
+00
+b0 6
+b0 :
+b10010 3
+b10010 7
+#65000
+1(
+1%
+0$
+10
+#70000
+00
+b1 6
+b1 :
+#75000
+1+
+1$
+1'
+0(
+0%
+10
+#80000
+00
+b10 6
+b10 :
+#85000
+0'
+0+
+0$
+10
+#90000
+00
+b11 6
+b11 :
+#95000
+1/
+b10 !
+b10 =
+b100 "
+b100 <
+b100 .
+b100 ;
+10
+#100000
+00
+b100 6
+b100 :
+#105000
+1$
+b0 .
+b0 ;
+b0 !
+b0 =
+b0 "
+b0 <
+0/
+10
+#110000
+00
+b0 6
+b0 :
+b100010 3
+b100010 7
+#115000
+1(
+1%
+0$
+10
+#120000
+00
+b1 6
+b1 :
+#125000
+1+
+1$
+1'
+0(
+0%
+10
+#130000
+00
+b10 6
+b10 :
+#135000
+0'
+0+
+0$
+10
+#140000
+00
+b11 6
+b11 :
+#145000
+1/
+b10 !
+b10 =
+10
+#150000
+00
+b100 6
+b100 :
+#155000
+1$
+b0 !
+b0 =
+0/
+10
+#160000
+00
+b0 6
+b0 :
+12
+b11000001 3
+b11000001 7
+#165000
+1(
+1%
+0$
+10
+#170000
+00
+b1 6
+b1 :
+#175000
+1+
+1$
+1'
+0(
+0%
+10
+#180000
+00
+b10 6
+b10 :
+#185000
+0'
+0+
+0$
+10
+#190000
+00
+b11 6
+b11 :
+#195000
+1#
+b1 !
+b1 =
+10
+#200000
+00
+b100 6
+b100 :
+#205000
+1$
+b0 !
+b0 =
+0#
+10
+#210000
+00
