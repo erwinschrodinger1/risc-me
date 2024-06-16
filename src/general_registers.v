@@ -5,7 +5,7 @@ module general_registers (
     input reset,
     input wire [2:0] src_bus_selector,
     input wire [2:0] dest_bus_selector,
-    input [7:0] data,
+    input wire [7:0] data,
     output reg [7:0] src
 );
 
@@ -34,7 +34,8 @@ register reg_R0 (
     .data(data),
     .reg_out(reg_R0_out),
     .enable((src_bus_selector == `R0_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R0_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R0_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R1 (
     .clk(clk),
@@ -42,7 +43,8 @@ register reg_R1 (
     .data(data),
     .reg_out(reg_R1_out),
     .enable((src_bus_selector == `R1_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R1_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R1_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R2 (
     .clk(clk),
@@ -50,7 +52,8 @@ register reg_R2 (
     .data(data),
     .reg_out(reg_R2_out),
     .enable((src_bus_selector == `R2_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R2_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R2_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R3 (
     .clk(clk),
@@ -58,7 +61,8 @@ register reg_R3 (
     .data(data),
     .reg_out(reg_R3_out),
     .enable((src_bus_selector == `R3_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R3_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R3_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R4 (
     .clk(clk),
@@ -66,7 +70,8 @@ register reg_R4 (
     .data(data),
     .reg_out(reg_R4_out),
     .enable((src_bus_selector == `R4_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R4_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R4_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R5 (
     .clk(clk),
@@ -74,7 +79,8 @@ register reg_R5 (
     .data(data),
     .reg_out(reg_R5_out),
     .enable((src_bus_selector == `R5_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R5_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R5_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R6 (
     .clk(clk),
@@ -82,7 +88,8 @@ register reg_R6 (
     .data(data),
     .reg_out(reg_R6_out),
     .enable((src_bus_selector == `R6_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R6_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R6_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 register reg_R7 (
     .clk(clk),
@@ -90,7 +97,8 @@ register reg_R7 (
     .data(data),
     .reg_out(reg_R7_out),
     .enable((src_bus_selector == `R7_SELECTOR) ? 1'b1 : 1'b0),
-    .latch((dest_bus_selector == `R7_SELECTOR) ? 1'b1 : 1'b0)
+    .latch((dest_bus_selector == `R7_SELECTOR) ? 1'b1 : 1'b0),
+    .inc(1'b0)
 );
 
 // Outputs based on src_bus_selector

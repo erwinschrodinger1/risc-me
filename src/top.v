@@ -1,22 +1,49 @@
-module main();
+// module main();
 
-initial
-  begin
-  wire clock;
+// initial
+//   begin
+//   wire clk;
+//   reg reset;
+//   reg [2:0]src_bus_selector;
+//   reg [2:0]dest_bus_selector;
+//   wire [7:0] data;
+//   wire [7:0]src;
+  
 
-  Gowin_OSC cock_instance(
-    .oscout(clock)
-  );
+//   Gowin_OSC cock_instance(
+//     .oscout(clk)
+//   );
 
-  general_registers general_registers_instance(
-    clk(),
-    reset(),
-    src_bus_selector(),
-    dest_bus_selector(),
-    data(),
-    src()
-  );  
+//   wire [2:0] sc;
 
-  end
+//   sequence_counter sequence_counter_instance(
+//     clk(clk),
+//     sc(sc)
+//   )
 
-endmodule
+//   reg [7:0] pc =8'b0;
+//   register program_counter(
+//     .clk(clk),
+//     .reset(),
+//     .data(pc),
+//     .reg_out(pc),
+//     .enable(),
+//     .latch()
+//     .inc()
+// );
+
+  
+//   general_registers general_registers_instance(
+//     clk(clk),
+//     reset(reset),
+//     src_bus_selector(src_bus_selector),
+//     dest_bus_selector(dest_bus_selector),
+//     data(data),
+//     src(src)
+//   );  
+
+
+
+//   end
+
+// endmodule

@@ -1,5 +1,7 @@
-//module control
-//(
+module control
+(
+    input wire clk,
+    input wire [2:0] sc
 //    input [3:0] instruction,
 //    input clk,
 //    input bReset,
@@ -17,8 +19,16 @@
 //    output reg pc_in,
 //    output reg flags_in,
 //    output reg [`BusSelectorBits-1:0] bus_selector
-//    );
+   );
 
+    // always @(posedge clk ) begin
+    //     case (sc)
+    //         `T0: 
+                
+    //         `T1: 
+    //     endcase
+    // end
+    
 //    `include "src/parameters.v"
 //    `include "src/alu.v"
 
@@ -61,4 +71,4 @@
 //        endcase
 //    end
 
-//endmodule
+endmodule

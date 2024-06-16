@@ -18,7 +18,11 @@
 `define R7_SELECTOR 3'b111
 
 // SC States
-`define T0 2'b00
-`define T1 2'b01
-`define T2 2'b10
-`define T3 2'b11
+`define T0 3'b000
+`define T1 3'b001
+`define T2 3'b010
+`define T3 3'b011
+`define T4 3'b100
+`define T5 3'b101
+`define T6 3'b110
+`define T7 3'b111
